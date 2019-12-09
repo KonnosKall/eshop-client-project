@@ -1,0 +1,26 @@
+<!--<pre>{{ home | json }}</pre>-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-3">
+      <h1>{{home.title}}</h1>
+      <p>{{home.paragraph}}</p>
+      <div id="carouselExampleControls" class="carousel carousel-fade slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item" [class.active]="i===0" *ngFor="let g of home.gallery; let i = index">
+            <img class="d-block w-100" [src]="g">
+          </div>
+
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

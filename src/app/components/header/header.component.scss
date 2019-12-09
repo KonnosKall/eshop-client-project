@@ -1,0 +1,12 @@
+.header ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin:0;
+}
+.header ul li a{
+  color:#c5c5c5;
+}
+.header ul li.active a{
+  color:#fff;
+}

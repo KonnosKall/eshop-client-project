@@ -1,0 +1,30 @@
+<!--<pre>{{ contact | json }}</pre>-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-3">
+      <h1>{{contact.title}}</h1>
+      <p>{{contact.paragraph}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <h2>Info</h2>
+      <p><strong>Telephone: </strong><a class="text-dark" href="tel:{{contact.phone}}">{{contact.phone}}</a></p>
+      <p><strong>Email: </strong><a class="text-dark" href="mailto:{{contact.email}}">{{contact.email}}</a></p>
+
+    </div>
+    <div class="col-6">
+      <h2>Locations</h2>
+      <agm-map [latitude]="center.lat" [longitude]="center.lng" [zoom]="mapZoom" [mapTypeId]="'roadmap'"
+               >
+        <agm-marker *ngFor="let d of contact.departments" [latitude]="d.coordinates.lat" [longitude]="d.coordinates.lng">
+          <agm-info-window>
+            <h5>{{d.title}}</h5>
+          </agm-info-window>
+
+        </agm-marker>
+      </agm-map>
+    </div>
+  </div>
+</div>
