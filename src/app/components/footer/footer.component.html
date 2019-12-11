@@ -1,7 +1,11 @@
 <div class="container-fluid bg-dark fixed-bottom">
   <div class="row">
-    <div class="col-12">
-      <p class="text-white text-center m-0 p-2">shoeShop 2019 &copy; All rights reserved!</p>
+    <div class="col-12 text-white text-center pt-3 pb-3">
+      <!--      <p class="text-white text-center m-0 p-2">shoeShop 2019 &copy; All rights reserved!</p>-->
+      <button class="btn btn-light" (click)="ss.decreaseNumber()">-</button>
+      {{ ss.num }}
+      <button class="btn btn-light" (click)="ss.increaseNumber()">+</button>
+      <input [(ngModel)]="ss.inp"  type="color" placeholder="Input" aria-label="Search" id="myInput">
     </div>
   </div>
 </div>

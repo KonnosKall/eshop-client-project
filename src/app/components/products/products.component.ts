@@ -8,13 +8,14 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ProductsComponent implements OnInit {
   public prods: any = {};
+  public search: string;
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute
   ) {
   }
 ngOnInit() {
-    this.http.get('https://simple-api.develobird.gr/products')
+    this.http.get('https://simple-api.develobird.gr/products/')
       .subscribe(response => {
         this.prods = response;
         console.log(this.prods = response);

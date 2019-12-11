@@ -12,6 +12,11 @@ import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {HttpClientModule} from '@angular/common/http';
 import {AgmCoreModule} from '@agm/core';
+import { FilterPipeModule } from 'ngx-filter-pipe';
+import {FormsModule} from '@angular/forms';
+import { BoxComponent } from './components/box/box.component';
+import { BoxesComponent } from './components/boxes/boxes.component';
+
 
 const routes = [
   {
@@ -33,6 +38,10 @@ const routes = [
   {
     path: 'contact',
     component: ContactComponent
+  },
+  {
+    path: 'boxes',
+    component: BoxesComponent
   }
 ];
 
@@ -47,18 +56,23 @@ const routes = [
     ProductComponent,
     HeaderComponent,
     FooterComponent,
+    BoxComponent,
+    BoxesComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
+    FilterPipeModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(routes),
     AgmCoreModule.forRoot({
       apiKey: ''
-    })
+    }),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+
 }
