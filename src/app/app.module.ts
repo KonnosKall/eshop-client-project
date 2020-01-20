@@ -12,11 +12,12 @@ import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {HttpClientModule} from '@angular/common/http';
 import {AgmCoreModule} from '@agm/core';
-import { FilterPipeModule } from 'ngx-filter-pipe';
+import {FilterPipeModule} from 'ngx-filter-pipe';
 import {FormsModule} from '@angular/forms';
-import { BoxComponent } from './components/box/box.component';
-import { BoxesComponent } from './components/boxes/boxes.component';
-
+import {BoxComponent} from './components/box/box.component';
+import {BoxesComponent} from './components/boxes/boxes.component';
+import {NgxWebstorageModule} from 'ngx-webstorage';
+import {CartComponent} from './components/cart/cart.component';
 
 const routes = [
   {
@@ -42,6 +43,10 @@ const routes = [
   {
     path: 'boxes',
     component: BoxesComponent
+  },
+  {
+    path: 'cart',
+    component: CartComponent
   }
 ];
 
@@ -57,7 +62,8 @@ const routes = [
     HeaderComponent,
     FooterComponent,
     BoxComponent,
-    BoxesComponent
+    BoxesComponent,
+    CartComponent
   ],
   imports: [
     HttpClientModule,
@@ -68,7 +74,8 @@ const routes = [
     AgmCoreModule.forRoot({
       apiKey: ''
     }),
-    FormsModule
+    FormsModule,
+    NgxWebstorageModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

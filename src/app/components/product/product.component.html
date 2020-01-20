@@ -5,6 +5,7 @@
       <h1> {{product.title}}</h1>
       <h2>{{product.price}}&euro;</h2>
       <p>{{product.description}}</p>
+      <button (click)="addToCart(product._id)" class="btn btn-info">Add to Cart</button>
     </div>
   </div>
 </div>

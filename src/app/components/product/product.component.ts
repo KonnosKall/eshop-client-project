@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
+import {LocalStorage} from 'ngx-webstorage';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-product',
@@ -10,22 +12,33 @@ import {ActivatedRoute} from '@angular/router';
 export class ProductComponent implements OnInit {
   public product: any = {};
 
+  @LocalStorage('cart')
+  public cart;
+
   constructor(
     private http: HttpClient,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
 
-      this.http.get('https://simple-api.develobird.gr/products/' + params.productId)
+      this.http.get(environment.apiUrl + '/products/' + params.productId)
         .subscribe(response => {
           this.product = response;
           console.log(this.product = response);
         });
 
     });
+
+  }
+
+  public addToCart(id: string) {
+    if (!this.cart.includes(id)) {
+      this.cart.push(id);
+      this.cart = this.cart;
+    }
   }
 
 }

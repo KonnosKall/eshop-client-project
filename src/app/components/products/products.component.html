@@ -6,12 +6,12 @@
     </div>
     <div class="col-12 mb-3 mt-3">
       <h1 class="text-center">
-        {{prods.title}}
+
       </h1>
     </div>
   </div>
   <div class="row">
-    <div *ngFor="let pr of prods.products | filterBy:{title:search} " class="col-3">
+    <div *ngFor="let pr of prods | filterBy:{title:search} " class="col-3">
       <a class="text-dark" [routerLink]="'/products/'+ pr._id"><img [src]="pr.photo" class="img-fluid"></a>
       <h5><a class="text-dark" [routerLink]="'/products/'+ pr._id">{{pr.title}}</a></h5>
       <p>{{pr.price}}&euro;</p>

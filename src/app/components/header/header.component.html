@@ -1,6 +1,6 @@
 <div class="container-fluid bg-dark">
   <div class="row">
-    <div class="col-12 header">
+    <div class="col-12 header d-flex align-items-center">
       <ul class=" mr-auto">
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:'full'}">
           <a class="nav-link " routerLink="">Home</a>
@@ -18,7 +18,7 @@
           <a class="nav-link " routerLink="boxes">Boxes</a>
         </li>
       </ul>
-
+      <span><a routerLink="cart" class="text-white">Cart: {{cart.length}}</a></span>
     </div>
   </div>
 
