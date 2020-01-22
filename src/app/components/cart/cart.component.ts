@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {LocalStorageService} from 'ngx-webstorage';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-cart',
@@ -24,7 +25,7 @@ export class CartComponent implements OnInit {
   }
 
   public getCartProducts(productIds: string[]) {
-    this.http.post<any[]>('http://localhost:3000/products/cart', {productIds})
+    this.http.post<any[]>(environment.apiUrl + '/products/cart', {productIds})
       .subscribe(products => {
         this.products = products;
       });
